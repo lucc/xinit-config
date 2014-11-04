@@ -13,7 +13,7 @@ source_global_xinit () {
 }
 
 setup_keyboard () {
-  setxkbmap de
+  setxkbmap -option terminate:ctrl_alt_bksp -layout de
   xmodmap ~/.homesick/repos/xinit/Xmodmap
 }
 
@@ -26,8 +26,8 @@ start_awesome () {
   setup_keyboard
   setup_colors
   cbatticon &
-  firefox &
-  xterm &
+  #firefox &
+  #xterm &
   exec awesome
 }
 
