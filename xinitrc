@@ -19,7 +19,6 @@ setup_keyboard () {
 
 setup_colors () {
   xrdb -merge ~/.homesick/repos/xinit/Xresources
-  xrdb -merge ~/.homesick/repos/xinit/solarized.xterm
 }
 
 start_awesome () {
