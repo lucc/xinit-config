@@ -74,59 +74,54 @@ Xft.lcdfilter: lcddefault
 #    define S_base2         #073642
 #    define S_base3         #002b36
 #  endif
-! apply colors to selected terminal {{{2
-#  if TERM == XTERM
-xterm*background:              S_base03
-xterm*foreground:              S_base0
-xterm*fading:                  40
-xterm*fadeColor:               S_base03
-xterm*cursorColor:             S_base1
-xterm*pointerColorBackground:  S_base01
-xterm*pointerColorForeground:  S_base1
-
-xterm*color0:                  S_base02
-xterm*color1:                  S_red
-xterm*color2:                  S_green
-xterm*color3:                  S_yellow
-xterm*color4:                  S_blue
-xterm*color5:                  S_magenta
-xterm*color6:                  S_cyan
-xterm*color7:                  S_base2
-xterm*color9:                  S_orange
-xterm*color8:                  S_base03
-xterm*color10:                 S_base01
-xterm*color11:                 S_base00
-xterm*color12:                 S_base0
-xterm*color13:                 S_violet
-xterm*color14:                 S_base1
-xterm*color15:                 S_base3
-#  elif TERM == URXVT
-URxvt*background:              S_base03
-URxvt*foreground:              S_base0
-URxvt*fading:                  40
-URxvt*fadeColor:               S_base03
-URxvt*cursorColor:             S_base1
-URxvt*pointerColorBackground:  S_base01
-URxvt*pointerColorForeground:  S_base1
-
-URxvt*color0:                  S_base02
-URxvt*color1:                  S_red
-URxvt*color2:                  S_green
-URxvt*color3:                  S_yellow
-URxvt*color4:                  S_blue
-URxvt*color5:                  S_magenta
-URxvt*color6:                  S_cyan
-URxvt*color7:                  S_base2
-URxvt*color9:                  S_orange
-URxvt*color8:                  S_base03
-URxvt*color10:                 S_base01
-URxvt*color11:                 S_base00
-URxvt*color12:                 S_base0
-URxvt*color13:                 S_violet
-URxvt*color14:                 S_base1
-URxvt*color15:                 S_base3
-#  endif
+! define the standard ans color names
+#  define BACKGROUND             S_base03
+#  define FOREGROUND             S_base0
+#  define FADECOLOR              S_base03
+#  define CURSORCOLOR            S_base1
+#  define POINTEDCOLORBACKGROUND S_base01
+#  define POINTEDCOLORFOREGROUND S_base1
+#  define COLOR0                 S_base02
+#  define COLOR1                 S_red
+#  define COLOR2                 S_green
+#  define COLOR3                 S_yellow
+#  define COLOR4                 S_blue
+#  define COLOR5                 S_magenta
+#  define COLOR6                 S_cyan
+#  define COLOR7                 S_base2
+#  define COLOR8                 S_base03
+#  define COLOR9                 S_orange
+#  define COLOR10                S_base01
+#  define COLOR11                S_base00
+#  define COLOR12                S_base0
+#  define COLOR13                S_violet
+#  define COLOR14                S_base1
+#  define COLOR15                S_base3
 #endif
+! apply colors to all terminals {{{2
+*background:              BACKGROUND
+*foreground:              FOREGROUND
+*fadeColor:               FADECOLOR
+*cursorColor:             CURSORCOLOR
+*pointerColorBackground:  POINTEDCOLORBACKGROUND
+*pointerColorForeground:  POINTEDCOLORFOREGROUND
+*fading:                  40
+*color0:                  COLOR0
+*color1:                  COLOR1
+*color2:                  COLOR2
+*color3:                  COLOR3
+*color4:                  COLOR4
+*color5:                  COLOR5
+*color6:                  COLOR6
+*color7:                  COLOR7
+*color9:                  COLOR9
+*color8:                  COLOR8
+*color10:                 COLOR10
+*color11:                 COLOR11
+*color12:                 COLOR12
+*color13:                 COLOR13
+*color14:                 COLOR14
+*color15:                 COLOR15
 
 ! terminal selection {{{1
 #if TERM == XTERM
