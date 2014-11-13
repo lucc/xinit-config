@@ -1,4 +1,4 @@
-#!/bin/sh -x
+#!/bin/sh
 # ~/.xinitrc file by luc
 # vim: filetype=sh
 
