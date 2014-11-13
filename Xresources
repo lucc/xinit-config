@@ -10,24 +10,27 @@
 #define URXVT            5
 
 ! define some constants for the preprocessor (can be changed to taste) {{{1
-#define LUC_COLORS       SOLARIZED
-#define LUC_COLORS_TONE  DARK
-#define LUC_TERM         URXVT
+#define THEME     SOLARIZED
+#define TONE      DARK
+#define TERM      URXVT
 ! some alternatives
-!#define LUC_FONT         Terminus:style=Regular:size=16
-!#define LUC_FONT         Terminus:style=Regular:size=9
-!#define LUC_FONT         deja vu sans mono:size=9
-!#define LUC_FONT         menlo:size=11
-!#define LUC_FONT         Menlo for Powerline:size=9
-!#define LUC_FONT         Meslo LG S:size=9
-!#define LUC_FONT         Ubuntu Mono derivative Powerline:size=11
-!#define LUC_FONT         Meslo LG S for Powerline:size=9
-#define LUC_FONT         Ubuntu Mono derivative Powerline:size=11
+!#define FONT         Terminus:style=Regular:size=16
+!#define FONT         Terminus:style=Regular:size=9
+!#define FONT         deja vu sans mono:size=9
+#define FONT         deja vu sans mono for powerline:size=9
+!#define FONT         menlo:size=11
+!#define FONT         Menlo for Powerline:size=10
+!#define FONT         Meslo LG S:size=9
+!#define FONT         Ubuntu Mono derivative Powerline:size=11
+!#define FONT         Meslo LG S for Powerline:size=9
+!#define FONT         Ubuntu Mono derivative Powerline:size=11
+!#define FONT         Ubuntu Mono derivative Powerline:size=10
+!#define ITALIC_FONT      Ubuntu Mono derivative Powerline:italic:size=11
 
 ! set some preprocessor constants automatically {{{1
-#if LUC_TERM == XTERM
+#if TERM == XTERM
 #  define TERM_NAME xterm
-#elif LUC_TERM == URXVT
+#elif TERM == URXVT
 #  define TERM_NAME URxvt
 #endif
 
@@ -42,7 +45,7 @@ Xft.rgba: rgb
 Xft.lcdfilter: lcddefault
 
 ! color selection {{{1
-#if LUC_COLORS == SOLARIZED
+#if THEME == SOLARIZED
 ! color definitions copied from http://ethanschoonover.com/solarized
 #  define S_yellow        #b58900
 #  define S_orange        #cb4b16
@@ -52,7 +55,7 @@ Xft.lcdfilter: lcddefault
 #  define S_blue          #268bd2
 #  define S_cyan          #2aa198
 #  define S_green         #859900
-#  if LUC_COLORS_TONE == DARK
+#  if TONE == DARK
 #    define S_base03        #002b36
 #    define S_base02        #073642
 #    define S_base01        #586e75
@@ -61,7 +64,7 @@ Xft.lcdfilter: lcddefault
 #    define S_base1         #93a1a1
 #    define S_base2         #eee8d5
 #    define S_base3         #fdf6e3
-#  elif LUC_COLORS_TONE == LIGHT
+#  elif TONE == LIGHT
 #    define S_base03        #fdf6e3
 #    define S_base02        #eee8d5
 #    define S_base01        #93a1a1
@@ -72,7 +75,7 @@ Xft.lcdfilter: lcddefault
 #    define S_base3         #002b36
 #  endif
 ! apply colors to selected terminal {{{2
-#  if LUC_TERM == XTERM
+#  if TERM == XTERM
 xterm*background:              S_base03
 xterm*foreground:              S_base0
 xterm*fading:                  40
@@ -97,7 +100,7 @@ xterm*color12:                 S_base0
 xterm*color13:                 S_violet
 xterm*color14:                 S_base1
 xterm*color15:                 S_base3
-#  elif LUC_TERM == URXVT
+#  elif TERM == URXVT
 URxvt*background:              S_base03
 URxvt*foreground:              S_base0
 URxvt*fading:                  40
@@ -126,19 +129,21 @@ URxvt*color15:                 S_base3
 #endif
 
 ! terminal selection {{{1
-#if LUC_TERM == XTERM
-xterm*faceName:          LUC_FONT
+#if TERM == XTERM
+xterm*faceName:          FONT
 xterm*scrollKey:         true
 xterm*scrollTtyOutput:   false
 ! old xdefaults file
 !XTerm.fullscreen: true
 !XTerm*faceName: Menlo
 !XTerm*faceSize: 11
-#elif LUC_TERM == URXVT
+#elif TERM == URXVT
 URxvt.scrollstyle:       plain
 URxvt*scrollTtyOutput:   false
 URxvt*scrollTtyKeypress: true
-URxvt.font:              xft:LUC_FONT
+URxvt.scrollBar_right:   true
+URxvt.font:              xft:FONT
+!URxvt.italicFont:        xft:ITALIC_FONT
 URxvt.perl-ext-common:   default,matcher
 URxvt.url-launcher:      /usr/bin/firefox
 URxvt.matcher.button:    1
