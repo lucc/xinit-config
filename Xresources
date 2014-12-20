@@ -289,3 +289,8 @@ x11-ssh-askpass*font:                   -*-dina-medium-r-*-*-12-*-*-*-*-*-*-*
 !x11-ssh-askpass.Button*background:      #000000
 !x11-ssh-askpass.Indicator*foreground:   #ff9900
 !x11-ssh-askpass.Indicator*background:   #090909
+
+! pinentry {{{1
+pinentry*background: BACKGROUND
+pinentry*foreground: #aaaaaa
+pinentry*shadowThickness:        0
