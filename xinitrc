@@ -2,6 +2,8 @@
 # ~/.xinitrc file by luc
 # vim: filetype=sh
 
+dir=${XDG_CONFIG_HOME:-$HOME/.config}/xinit
+
 source_global_xinit () {
   # copied from the arch linux default xinitrc file.
   if [ -d /etc/X11/xinit/xinitrc.d ]; then
@@ -14,11 +16,11 @@ source_global_xinit () {
 
 setup_keyboard () {
   setxkbmap -option terminate:ctrl_alt_bksp -layout de
-  xmodmap ~/.homesick/repos/xinit/Xmodmap
+  xmodmap $dir/Xmodmap
 }
 
 setup_colors () {
-  xrdb -merge ~/.homesick/repos/xinit/Xresources
+  xrdb -merge $dir/Xresources
 }
 
 cbatticon_power_manager () {
