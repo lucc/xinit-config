@@ -39,6 +39,20 @@ start_awesome () {
   #xterm &
   exec awesome
 }
+start_openbox () {
+  source_global_xinit
+  setup_keyboard
+  setup_colors
+  cbatticon_power_manager
+  exec openbox
+}
+start_xmonad () {
+  source_global_xinit
+  setup_keyboard
+  setup_colors
+  cbatticon_power_manager &
+  exec xmonad
+}
 
 # TODO how will i handle ssh stuff?
 
@@ -52,8 +66,9 @@ case "${1:-$CMD}" in
   awesome) start_awesome;;
   gnome)   CMD=gnome-session;;
   lxde)    CMD=lxsession;;
-  openbox) CMD=openbox;;
+  openbox) start_openbox;;
   xfce)    CMD=xfce4-session;;
+  xmonad)  start_xmonad;;
 esac
 
 exec $CMD
