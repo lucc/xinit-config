@@ -55,7 +55,7 @@ Xft.rgba: rgb
 Xft.lcdfilter: lcddefault
 
 ! color selection {{{1
-#if THEME == SOLARIZED
+#if THEME == SOLARIZED //{{{2
 ! color definitions copied from http://ethanschoonover.com/solarized
 #  define S_yellow        #b58900
 #  define S_orange        #cb4b16
@@ -65,7 +65,7 @@ Xft.lcdfilter: lcddefault
 #  define S_blue          #268bd2
 #  define S_cyan          #2aa198
 #  define S_green         #859900
-#  if TONE == DARK
+#  if TONE == DARK //{{{3
 #    define S_base03        #002b36
 #    define S_base02        #073642
 #    define S_base01        #586e75
@@ -74,7 +74,7 @@ Xft.lcdfilter: lcddefault
 #    define S_base1         #93a1a1
 #    define S_base2         #eee8d5
 #    define S_base3         #fdf6e3
-#  elif TONE == LIGHT
+#  elif TONE == LIGHT //{{{3
 #    define S_base03        #fdf6e3
 #    define S_base02        #eee8d5
 #    define S_base01        #93a1a1
@@ -84,7 +84,7 @@ Xft.lcdfilter: lcddefault
 #    define S_base2         #073642
 #    define S_base3         #002b36
 #  endif
-! define the standard ans color names
+! define the standard ans color names {{{3
 #  define BACKGROUND             S_base03
 #  define FOREGROUND             S_base0
 #  define FADECOLOR              S_base03
@@ -107,9 +107,9 @@ Xft.lcdfilter: lcddefault
 #  define COLOR13                S_violet
 #  define COLOR14                S_base1
 #  define COLOR15                S_base3
-#elif THEME == LUCIUS
+#elif THEME == LUCIUS //{{{2
 ! color definitions copied from https://github.com/jonathanfilip/lucius
-#  if TONE == BLACK || TONE == DARK
+#  if TONE == BLACK || TONE == DARK //{{{3
 #    if TONE == BLACK
 #      define BACKGROUND  #121212
 #      define COLOR0      #121212
@@ -171,7 +171,7 @@ Xft.lcdfilter: lcddefault
 #      define COLOR14     #5faf87
 #      define COLOR15     #bcbcbc
 #    endif
-#  elif TONE == LIGHT || TONE == WHITE
+#  elif TONE == LIGHT || TONE == WHITE //{{{3
 #    if TONE == LIGHT
 #      define BACKGROUND  #eeeeee
 #      define COLOR7      #eeeeee
