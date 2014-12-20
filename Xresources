@@ -24,9 +24,9 @@
 !#define FONT         Terminus:style=Regular:size=16
 !#define FONT         Terminus:style=Regular:size=9
 !#define FONT         deja vu sans mono:size=9
-#define FONT         deja vu sans mono for powerline:size=9
+!#define FONT         DejaVu Sans Mono:size=9
 !#define FONT         menlo:size=11
-!#define FONT         Menlo for Powerline:size=10
+#define FONT         Menlo for Powerline:size=9
 !#define FONT         Meslo LG S:size=9
 !#define FONT         Ubuntu Mono derivative Powerline:size=11
 !#define FONT         Meslo LG S for Powerline:size=9
@@ -42,12 +42,15 @@
 #endif
 
 ! general font settings {{{1
+!*font:              -*-dina-medium-r-*-*-16-*-*-*-*-*-*-*
+*font:                     -*-terminus-*-*-*-*-*-*-*-*-*-*-*-*
 ! copied from http://crunchbang.org/forums/viewtopic.php?pid=196047#p196047
 Xft.autohint: 0
 Xft.antialias: 1
 Xft.hinting: false
 !Xft.hintstyle: hintslight
-Xft.dpi: 96
+!Xft.hintstyle: hintfull
+Xft.dpi: 113
 Xft.rgba: rgb
 Xft.lcdfilter: lcddefault
 
