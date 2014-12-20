@@ -21,11 +21,18 @@ setup_colors () {
   xrdb -merge ~/.homesick/repos/xinit/Xresources
 }
 
+cbatticon_power_manager () {
+  # use cbatticon as a simple power manager
+  (cbatticon \
+    --low-level 10 \
+    --command-critical-level "sh -c 'check-suspend.sh -d 30'" &)
+}
+
 start_awesome () {
   source_global_xinit
   setup_keyboard
   setup_colors
-  cbatticon &
+  cbatticon_power_manager &
   #firefox &
   #xterm &
   exec awesome
