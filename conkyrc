@@ -35,7 +35,7 @@ draw_graph_borders yes
 draw_outline no
 draw_shades no
 use_xft yes
-xftfont DejaVu Sans Mono:size=12
+xftfont DejaVu Sans Mono:size=9
 gap_x 5
 gap_y 60
 minimum_size 5 5
@@ -48,7 +48,7 @@ own_window yes
 own_window_class Conky
 own_window_type desktop
 stippled_borders 0
-update_interval 1.0
+update_interval 5.0
 uppercase no
 use_spacer none
 show_graph_scale no
