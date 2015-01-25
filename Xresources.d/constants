@@ -1,0 +1,15 @@
+! vim: filetype=xdefaults
+
+! define some preprocessor constants for conditions in the file {{{1
+! the values have no actual meaning but are only used in conditions
+#define NONE             0
+#define SOLARIZED        1
+#define LIGHT            2
+#define DARK             3
+#define XTERM            4
+#define URXVT            5
+#define LUCIUS           6
+#define LOW              7
+#define HIGH             8
+#define BLACK            9
+#define WHITE            10
