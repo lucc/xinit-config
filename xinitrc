@@ -13,21 +13,22 @@ source_global_xinit () {
     unset f
   fi
 }
-
 setup_keyboard () {
   setxkbmap -option terminate:ctrl_alt_bksp -layout de
   xmodmap $dir/Xmodmap
 }
-
 setup_colors () {
   xrdb -merge $dir/Xresources
 }
-
 cbatticon_power_manager () {
   # use cbatticon as a simple power manager
   (cbatticon \
     --low-level 10 \
     --command-critical-level "sh -c 'check-suspend.sh -d 30'" &)
+}
+load_ssh_keys () {
+  SSH_ASKPASS=$HOME/bin/pass-as-ssh-askpass.sh \
+    ssh-add $HOME/.ssh/*id_rsa < /dev/null
 }
 
 start_awesome () {
@@ -35,6 +36,7 @@ start_awesome () {
   setup_keyboard
   setup_colors
   cbatticon_power_manager &
+  (sleep 60 && load_ssh_keys) &
   #firefox &
   #xterm &
   exec awesome
