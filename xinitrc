@@ -31,46 +31,38 @@ load_ssh_keys () {
     ssh-add $HOME/.ssh/*id_rsa < /dev/null
 }
 
-start_awesome () {
-  source_global_xinit
-  setup_keyboard
-  setup_colors
-  cbatticon_power_manager &
-  (sleep 60 && load_ssh_keys) &
-  #firefox &
-  #xterm &
-  exec awesome
-}
-start_openbox () {
-  source_global_xinit
-  setup_keyboard
-  setup_colors
-  cbatticon_power_manager
-  exec openbox
-}
-start_xmonad () {
-  source_global_xinit
-  setup_keyboard
-  setup_colors
-  cbatticon_power_manager &
-  exec xmonad
-}
+# first call some general initialisation code that should be run for every
+# environment
+source_global_xinit
+setup_keyboard
+setup_colors
+(sleep 60 && load_ssh_keys) &
 
-# TODO how will i handle ssh stuff?
+# select the correct programm to exec (and optionally call additional init
+# functions)
+if [ $# -eq 0 ]; then
+  # select the default WM/DE for different systems
+  case `uname | tr A-Z a-z` in
+    linux) set awesome;;
+    darwin) set xterm;;
+  esac
+fi
+if [ $# -eq 1 ]; then
+  # run some WM/DE specific init functions and set the command to exec
+  case "$1" in
+    awesome|openbox|xmonad) cbatticon_power_manager &;;
+    gnome) set gnome-session;;
+    kde) set startkde;;
+    lxde)
+      if which startlxde; then set startlxde
+      else set lxsession
+      fi;;
+    xfce)
+      if which startxfce4; then set startxfce4
+      else set xfce4-session
+      fi;;
+  esac
+fi
 
-# last we start the wm/de
-case `uname | tr A-Z a-z` in
-  linux) CMD=awesome;;
-  darwin) CMD=xterm;;
-esac
-
-case "${1:-$CMD}" in
-  awesome) start_awesome;;
-  gnome)   CMD=gnome-session;;
-  lxde)    CMD=lxsession;;
-  openbox) start_openbox;;
-  xfce)    CMD=xfce4-session;;
-  xmonad)  start_xmonad;;
-esac
-
-exec $CMD
+# start the window manager or desktop environment
+exec "$@"
