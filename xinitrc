@@ -4,6 +4,22 @@
 
 dir=${XDG_CONFIG_HOME:-$HOME/.config}/xinit
 
+ask_yes () {
+  zenity --question --timeout 3 --text "$1"
+  case $? in
+    0|5) return 0;;
+    1) return 1;;
+    *) echo Unknown return value from zenity. >&2; return 2;;
+  esac
+}
+ask_no () {
+  zenity --question --timeout 3 --text "$1"
+  case $? in
+    0|5) return 1;;
+    1) return 0;;
+    *) echo Unknown return value from zenity. >&2; return 2;;
+  esac
+}
 source_global_xinit () {
   # copied from the arch linux default xinitrc file.
   if [ -d /etc/X11/xinit/xinitrc.d ]; then
@@ -30,12 +46,18 @@ load_ssh_keys () {
   SSH_ASKPASS=$HOME/bin/pass-as-ssh-askpass.sh \
     ssh-add $HOME/.ssh/*id_rsa < /dev/null
 }
+autostart () {
+  firefox &
+  gvim &
+  mpd-notification -m ~/.config/mpd/music &
+}
 
 # first call some general initialisation code that should be run for every
 # environment
 source_global_xinit
 setup_keyboard
 setup_colors
+(ask_yes "Do you want a full start?" && autostart) &
 (sleep 60 && load_ssh_keys) &
 
 # select the correct programm to exec (and optionally call additional init
