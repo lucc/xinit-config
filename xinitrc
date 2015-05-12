@@ -43,7 +43,7 @@ cbatticon_power_manager () {
     --command-critical-level "sh -c 'check-suspend.sh -d 30'" &)
 }
 load_ssh_keys () {
-  SSH_ASKPASS=$HOME/bin/pass-as-ssh-askpass.sh \
+  SSH_ASKPASS=`which pass-as-ssh-askpass.sh` \
     ssh-add $HOME/.ssh/*id_rsa < /dev/null
 }
 autostart () {
