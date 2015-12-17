@@ -56,8 +56,8 @@ autostart () {
 source_global_xinit
 setup_keyboard
 setup_colors
-(ask_yes "Do you want a full start?" && autostart) &
-(sleep 60 && load_ssh_keys) &
+(ask_yes "Do you want a full start?" && autostart &) &
+(sleep 60 && load_ssh_keys &) &
 
 # select the correct programm to exec (and optionally call additional init
 # functions)
