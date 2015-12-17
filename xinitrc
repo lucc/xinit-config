@@ -48,7 +48,6 @@ load_ssh_keys () {
 }
 autostart () {
   firefox &
-  gvim &
   mpd-notification -m ~/.config/mpd/music &
 }
 
