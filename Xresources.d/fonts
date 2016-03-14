@@ -5,10 +5,10 @@
 
 #define FONT_MENLO          Menlo:size=11
 ! Some symbols are only displayed in urxvt with size>=10
-#define FONT_MENLO_PL       Menlo for Powerline:size=9
+#define FONT_MENLO_PL       Menlo for Powerline:size=10
 
-#define FONT_MESLO          Meslo LG S:size=9
-#define FONT_MESLO_PL       Meslo LG S for Powerline:size=9
+#define FONT_MESLO          Meslo LG S:size=10
+#define FONT_MESLO_PL       Meslo LG S for Powerline:size=10
 
 !#define FONT_TERMINUS       Terminus:style=Regular:size=9
 #define FONT_TERMINUS       -*-terminus-*-*-*-*-*-*-*-*-*-*-*-*
