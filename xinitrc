@@ -31,10 +31,10 @@ source_global_xinit () {
 }
 setup_keyboard () {
   setxkbmap -option terminate:ctrl_alt_bksp -layout de
-  xmodmap $dir/Xmodmap
+  xmodmap "$dir/Xmodmap"
 }
 setup_colors () {
-  xrdb -merge $dir/Xresources
+  xrdb -merge "$dir/Xresources"
 }
 cbatticon_power_manager () {
   # use cbatticon as a simple power manager
@@ -43,8 +43,8 @@ cbatticon_power_manager () {
     --command-critical-level "sh -c 'check-suspend.sh -d 30'" &)
 }
 load_ssh_keys () {
-  SSH_ASKPASS=`which pass-as-ssh-askpass.sh` \
-    ssh-add $HOME/.ssh/*id_rsa < /dev/null
+  SSH_ASKPASS=$(which pass-as-ssh-askpass.sh) \
+    ssh-add "$HOME"/.ssh/*id_rsa < /dev/null
 }
 autostart () {
   firefox &
@@ -63,7 +63,7 @@ setup_colors
 # functions)
 if [ $# -eq 0 ]; then
   # select the default WM/DE for different systems
-  case `uname | tr A-Z a-z` in
+  case $(uname | tr A-Z a-z) in
     linux) set awesome;;
     darwin) set xterm;;
   esac
