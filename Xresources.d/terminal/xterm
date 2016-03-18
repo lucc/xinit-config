@@ -1,0 +1,8 @@
+
+xterm*faceName:          FONT
+xterm*scrollKey:         true
+xterm*scrollTtyOutput:   false
+! old xdefaults file
+!XTerm.fullscreen: true
+!XTerm*faceName: Menlo
+!XTerm*faceSize: 11

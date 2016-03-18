@@ -34,79 +34,11 @@ Xft.lcdfilter: lcddefault
 #elif THEME == LUCIUS
 #  include "Xresources.d/lucius"
 #endif
-! apply colors to all terminals/applications {{{2
-*background:              BACKGROUND
-*foreground:              FOREGROUND
-*fadeColor:               FADECOLOR
-*cursorColor:             CURSORCOLOR
-*pointerColorBackground:  POINTEDCOLORBACKGROUND
-*pointerColorForeground:  POINTEDCOLORFOREGROUND
-!*fading:                  40
-*color0:                  COLOR0
-*color1:                  COLOR1
-*color2:                  COLOR2
-*color3:                  COLOR3
-*color4:                  COLOR4
-*color5:                  COLOR5
-*color6:                  COLOR6
-*color7:                  COLOR7
-*color9:                  COLOR9
-*color8:                  COLOR8
-*color10:                 COLOR10
-*color11:                 COLOR11
-*color12:                 COLOR12
-*color13:                 COLOR13
-*color14:                 COLOR14
-*color15:                 COLOR15
+
+#include "Xresources.d/color/terminals"
 
 ! terminal selection {{{1
-!#if TERM == XTERM
-xterm*faceName:          FONT
-xterm*scrollKey:         true
-xterm*scrollTtyOutput:   false
-! old xdefaults file
-!XTerm.fullscreen: true
-!XTerm*faceName: Menlo
-!XTerm*faceSize: 11
-!#elif TERM == URXVT
-URxvt.scrollstyle:       plain
-URxvt*scrollTtyOutput:   false
-URxvt*scrollTtyKeypress: true
-!URxvt.scrollBar_right:   false
-URxvt.scrollBar:         false
-URxvt.font:              xft:FONT
-URxvt.letterSpace:       -1
-!URxvt.italicFont:        xft:ITALIC_FONT
-URxvt.perl-ext-common:   default,matcher
-URxvt.url-launcher:      /usr/bin/firefox
-URxvt.matcher.button:    1
-URxvt.saveLines:         65535
-!URxvt.font:
-!URxvt.imFont:
-!URxvt.boldFont:
-!URxvt.italicFont:
-!URxvt.boldItalicFont:
-!#endif
+#include "Xresources.d/terminal/xterm"
+#include "Xresources.d/terminal/urxvt"
 
-! x11-ssh-askpass {{{1
-!x11-ssh-askpass*font:                   Terminus
-x11-ssh-askpass*background:             BACKGROUND
-x11-ssh-askpass*foreground:             FOREGROUND
-x11-ssh-askpass*shadowThickness:        0
-x11-ssh-askpass.*borderWidth:           0
-x11-ssh-askpass*Button.borderWidth:     1
-x11-ssh-askpass*Button.borderColor:     COLOR0
-x11-ssh-askpass*Indicator.background:   COLOR0
-x11-ssh-askpass*title:                  Password Dialog
-
-x11-ssh-askpass*font:                   FONT_DINA
-!x11-ssh-askpass*background:             #000000
-!x11-ssh-askpass*foreground:             #ffffff
-!x11-ssh-askpass.Button*background:      #000000
-!x11-ssh-askpass.Indicator*foreground:   #ff9900
-!x11-ssh-askpass.Indicator*background:   #090909
-
-! pinentry {{{1
-pinentry*background: BACKGROUND
-pinentry*foreground: #aaaaaa
-pinentry*shadowThickness:        0
+#include "Xresources.d/ssh-askpass"
