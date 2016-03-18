@@ -1,13 +1,12 @@
-! The .Xresources file by luc {{{1
+! The .Xresources file by luc
 ! vim: filetype=xdefaults foldmethod=marker
 
-! include the constants for conditions
-#include "Xresources.d/constants"
-! include the font macros
-#include "Xresources.d/fonts"
-#define FONT FONT_MENLO_PL
+! include macro definitions
+#include "Xresources.d/constants.def"
+#include "Xresources.d/fonts.def"
 
-! define some constants for the preprocessor (can be changed to taste) {{{1
+! define some constants for the preprocessor (can be changed to taste)
+#define FONT      FONT_MENLO_PL
 #define THEME     SOLARIZED
 #define TONE      DARK
 #define CONTRAST  LOW
