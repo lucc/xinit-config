@@ -6,8 +6,6 @@
 #define SOLARIZED        1
 #define LIGHT            2
 #define DARK             3
-#define XTERM            4
-#define URXVT            5
 #define LUCIUS           6
 #define LOW              7
 #define HIGH             8

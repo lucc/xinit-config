@@ -10,14 +10,6 @@
 #define THEME     SOLARIZED
 #define TONE      DARK
 #define CONTRAST  LOW
-#define TERM      XTERM
-
-! include some aoutomaticcaly set macros
-#include "Xresources.d/auto"
-
-! general font settings
-*font:                     FONT_TERMINUS
-#include "Xresources.d/xft"
 
 ! color selection
 #if THEME == SOLARIZED
@@ -28,6 +20,8 @@
 #  include "Xresources.d/color/zenburn"
 #endif
 
+#include "Xresources.d/fonts"
+#include "Xresources.d/xft"
 #include "Xresources.d/color/terminals"
 #include "Xresources.d/terminal/xterm"
 #include "Xresources.d/terminal/urxvt"
