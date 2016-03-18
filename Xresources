@@ -16,19 +16,11 @@
 ! include some aoutomaticcaly set macros
 #include "Xresources.d/auto"
 
-! general font settings {{{1
+! general font settings
 *font:                     FONT_TERMINUS
-! copied from http://crunchbang.org/forums/viewtopic.php?pid=196047#p196047
-Xft.autohint: 0
-Xft.antialias: 1
-Xft.hinting: false
-!Xft.hintstyle: hintslight
-!Xft.hintstyle: hintfull
-Xft.dpi: 96
-Xft.rgba: rgb
-Xft.lcdfilter: lcddefault
+#include "Xresources.d/xft"
 
-! color selection {{{1
+! color selection
 #if THEME == SOLARIZED
 #  include "Xresources.d/color/solarized"
 #elif THEME == LUCIUS
@@ -38,9 +30,6 @@ Xft.lcdfilter: lcddefault
 #endif
 
 #include "Xresources.d/color/terminals"
-
-! terminal selection {{{1
 #include "Xresources.d/terminal/xterm"
 #include "Xresources.d/terminal/urxvt"
-
 #include "Xresources.d/ssh-askpass"
