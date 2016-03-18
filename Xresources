@@ -33,6 +33,8 @@ Xft.lcdfilter: lcddefault
 #  include "Xresources.d/solarized"
 #elif THEME == LUCIUS
 #  include "Xresources.d/lucius"
+#elif THEME == ZENBURN
+#  include "Xresources.d/color/zenburn"
 #endif
 
 #include "Xresources.d/color/terminals"

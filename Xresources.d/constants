@@ -13,3 +13,4 @@
 #define HIGH             8
 #define BLACK            9
 #define WHITE            10
+#define ZENBURN          11
