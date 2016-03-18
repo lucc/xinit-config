@@ -30,9 +30,9 @@ Xft.lcdfilter: lcddefault
 
 ! color selection {{{1
 #if THEME == SOLARIZED
-#  include "Xresources.d/solarized"
+#  include "Xresources.d/color/solarized"
 #elif THEME == LUCIUS
-#  include "Xresources.d/lucius"
+#  include "Xresources.d/color/lucius"
 #elif THEME == ZENBURN
 #  include "Xresources.d/color/zenburn"
 #endif
