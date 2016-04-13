@@ -7,12 +7,34 @@ URxvt.scrollBar:         false
 URxvt.font:              xft:FONT
 URxvt.letterSpace:       -1
 !URxvt.italicFont:        xft:ITALIC_FONT
-URxvt.perl-ext-common:   default,matcher
-URxvt.url-launcher:      /usr/bin/firefox
-URxvt.matcher.button:    1
 URxvt.saveLines:         65535
 !URxvt.font:
 !URxvt.imFont:
 !URxvt.boldFont:
 !URxvt.italicFont:
 !URxvt.boldItalicFont:
+
+! Different extensions
+URxvt.perl-ext-common:   default,matcher
+
+! settings for the matcher extension
+URxvt.url-launcher:      /usr/bin/firefox
+URxvt.matcher.button:    1
+
+! settings for the bell-command extension
+!URxvt.bell-command: notify-send "Beep, Beep"
+
+! settings for the eval extension
+URxvt.keysym.M-c: eval:selection_to_clipboard
+URxvt.keysym.M-v: eval:paste_clipboard
+URxvt.keysym.M-V: eval:paste_primary
+
+URxvt.keysym.M-Up: eval:scroll_up 1
+URxvt.keysym.M-Down: eval:scroll_down 1
+URxvt.keysym.M-Home: eval:scroll_to_top
+URxvt.keysym.M-End:  eval:scroll_to_bottom
+
+! urls
+!urxvt*.colorUL:    #ffffff
+
+! vim: ft=xdefaults

@@ -10,10 +10,11 @@ x11-ssh-askpass*Button.borderColor:     COLOR0
 x11-ssh-askpass*Indicator.background:   COLOR0
 x11-ssh-askpass*title:                  Password Dialog
 
-x11-ssh-askpass*font:                   FONT_DINA
+x11-ssh-askpass*font:                   FONT_TERMINUS
 !x11-ssh-askpass*background:             #000000
 !x11-ssh-askpass*foreground:             #ffffff
 !x11-ssh-askpass.Button*background:      #000000
 !x11-ssh-askpass.Indicator*foreground:   #ff9900
 !x11-ssh-askpass.Indicator*background:   #090909
 
+! vim: ft=xdefaults
