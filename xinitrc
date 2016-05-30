@@ -63,17 +63,17 @@ setup_colors () {
 }
 cbatticon_power_manager () {
   # use cbatticon as a simple power manager
-  (cbatticon \
+  cbatticon \
     --low-level 10 \
-    --command-critical-level "sh -c 'check-suspend.sh -d 30'" &)
+    --command-critical-level "sh -c 'check-suspend.sh -d 30'" &
 }
 load_ssh_keys () {
   SSH_ASKPASS=$(which pass-as-ssh-askpass.sh) \
     ssh-add "$HOME"/.ssh/*id_rsa < /dev/null
 }
 autostart () {
+  sleep 20 && systemctl --user start mpd-notification &
   firefox &
-  mpd-notification -m ~/.config/mpd/music &
 }
 
 # first call some general initialisation code that should be run for every
@@ -84,8 +84,8 @@ setup_firefox_plugins
 source_global_xinit
 setup_keyboard
 setup_colors
-(ask_yes "Do you want a full start?" && autostart &) &
-(sleep 60 && load_ssh_keys &) &
+ask_yes "Do you want a full start?" && autostart &
+sleep 60 && load_ssh_keys &
 
 # select the correct programm to exec (and optionally call additional init
 # functions)
