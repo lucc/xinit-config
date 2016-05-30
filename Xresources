@@ -6,10 +6,18 @@
 #include "Xresources.d/fonts.def"
 
 ! define some constants for the preprocessor (can be changed to taste)
-#define FONT      FONT_MENLO_PL
-#define THEME     SOLARIZED
-#define TONE      DARK
-#define CONTRAST  LOW
+#ifndef FONT
+#  define FONT      FONT_MENLO_PL
+#endif
+#ifndef THEME
+#  define THEME     SOLARIZED
+#endif
+#ifndef TONE
+#  define TONE      LIGHT
+#endif
+#ifndef CONTRAST
+#  define CONTRAST  LOW
+#endif
 
 ! color selection
 #if THEME == SOLARIZED

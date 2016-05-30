@@ -20,6 +20,14 @@ ask_no () {
     *) echo Unknown return value from zenity. >&2; return 2;;
   esac
 }
+set_env () {
+  # The custom theme variables used by other scripts (awesome rc files and
+  # colorscheme.sh).
+  export THEME=${THEME:-SOLARIZED}
+  export theme=${theme:-solarized}
+  export TONE=${TONE:-DARK}
+  export tone=${tone:-dark}
+}
 source_global_xinit () {
   # copied from the arch linux default xinitrc file.
   if [ -d /etc/X11/xinit/xinitrc.d ]; then
@@ -34,7 +42,7 @@ setup_keyboard () {
   xmodmap "$dir/Xmodmap"
 }
 setup_colors () {
-  xrdb -merge "$dir/Xresources"
+  xrdb -merge -DTONE="$TONE" -DTHEME="$THEME" "$dir/Xresources"
 }
 cbatticon_power_manager () {
   # use cbatticon as a simple power manager
@@ -53,6 +61,7 @@ autostart () {
 
 # first call some general initialisation code that should be run for every
 # environment
+set_env
 source_global_xinit
 setup_keyboard
 setup_colors
