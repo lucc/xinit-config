@@ -28,6 +28,23 @@ set_env () {
   export TONE=${TONE:-DARK}
   export tone=${tone:-dark}
 }
+setup_urxvt () {
+  #export RXVT_SOCKET="$ddir/urxvt/urxvtd-`hostname`"
+  export RXVT_SOCKET=$(systemctl --user show-environment | sed -n 's/^XDG_RUNTIME_DIR=//p')/urxvtd.socket
+  #systemctl --user start urxvtd.socket
+}
+setup_firefox_plugins () {
+  cdir=${dir%/*}
+  _profile_export_vimperator_init () {
+    export VIMPERATOR_INIT="source $cdir/vimperator/vimperatorrc"
+    export VIMPERATOR_RUNTIME="$cdir/vimperator"
+  }
+  _profile_export_pentadactyl_init () {
+    export PENTADACTYL_INIT="source $cdir/pentadactyl/pentadactylrc"
+    export PENTADACTYL_RUNTIME="$cdir/pentadactyl"
+  }
+  _profile_export_vimperator_init
+}
 source_global_xinit () {
   # copied from the arch linux default xinitrc file.
   if [ -d /etc/X11/xinit/xinitrc.d ]; then
@@ -62,6 +79,8 @@ autostart () {
 # first call some general initialisation code that should be run for every
 # environment
 set_env
+setup_urxvt
+setup_firefox_plugins
 source_global_xinit
 setup_keyboard
 setup_colors
