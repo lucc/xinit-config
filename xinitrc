@@ -72,6 +72,7 @@ load_ssh_keys () {
     ssh-add "$HOME"/.ssh/*id_rsa < /dev/null
 }
 autostart () {
+  systemctl --user start urxvtd
   sleep 20 && systemctl --user start mpd-notification &
   firefox &
 }
