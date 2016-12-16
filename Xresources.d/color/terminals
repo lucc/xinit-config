@@ -1,5 +1,5 @@
 
-! apply colors to all terminals/applications {{{2
+! apply colors to all terminals/applications
 *background:              BACKGROUND
 *foreground:              FOREGROUND
 *fadeColor:               FADECOLOR
@@ -23,3 +23,5 @@
 *color13:                 COLOR13
 *color14:                 COLOR14
 *color15:                 COLOR15
+
+! vim: filetype=xdefaults

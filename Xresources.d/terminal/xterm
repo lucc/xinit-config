@@ -6,3 +6,5 @@ xterm*scrollTtyOutput:   false
 !XTerm.fullscreen: true
 !XTerm*faceName: Menlo
 !XTerm*faceSize: 11
+
+! vim: filetype=xdefaults

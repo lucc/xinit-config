@@ -1,5 +1,5 @@
 ! The .Xresources file by luc
-! vim: filetype=xdefaults foldmethod=marker
+! vim: filetype=xdefaults
 
 ! include macro definitions
 #include "Xresources.d/constants.def"
