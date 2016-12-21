@@ -79,10 +79,10 @@ autostart () {
 
 # first call some general initialisation code that should be run for every
 # environment
+source_global_xinit
 set_env
 setup_urxvt
 setup_firefox_plugins
-source_global_xinit
 setup_keyboard
 setup_colors
 ask_yes "Do you want a full start?" && autostart &
