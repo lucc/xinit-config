@@ -7,7 +7,7 @@
 
 ! define some constants for the preprocessor (can be changed to taste)
 #ifndef FONT
-#  define FONT      FONT_MENLO_PL
+#  define FONT      FONT_DEJAVU
 #endif
 #ifndef THEME
 #  define THEME     SOLARIZED

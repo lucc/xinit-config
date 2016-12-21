@@ -1,7 +1,7 @@
 ! Define some font strings for easy selection of fonts.
 
 ! DejaVu font family
-#define FONT_DEJAVU         DejaVu Sans Mono:size=9
+#define FONT_DEJAVU         DejaVu Sans Mono:size=10
 
 ! Menlo font family
 #define FONT_MENLO          Menlo:size=11

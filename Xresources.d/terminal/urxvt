@@ -5,7 +5,7 @@ URxvt*scrollTtyKeypress: true
 !URxvt.scrollBar_right:   false
 URxvt.scrollBar:         false
 URxvt.font:              xft:FONT
-!URxvt.letterSpace:       -1
+URxvt.letterSpace:       -1
 !URxvt.letterSpace:       -0.9
 !URxvt.italicFont:        xft:ITALIC_FONT
 URxvt.saveLines:         65535
