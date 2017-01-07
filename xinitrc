@@ -20,6 +20,7 @@ ask_no () {
     *) echo Unknown return value from zenity. >&2; return 2;;
   esac
 }
+
 set_env () {
   # The custom theme variables used by other scripts (awesome rc files and
   # colorscheme.sh).
@@ -45,6 +46,10 @@ setup_firefox_plugins () {
   }
   _profile_export_vimperator_init
 }
+setup_pulseaudio () {
+  pactl load-module module-x11-bell
+}
+
 source_global_xinit () {
   # copied from the arch linux default xinitrc file.
   if [ -d /etc/X11/xinit/xinitrc.d ]; then
@@ -72,21 +77,30 @@ load_ssh_keys () {
     ssh-add "$HOME"/.ssh/*id_rsa < /dev/null
 }
 autostart () {
-  systemctl --user start urxvtd
+  #systemctl --user start urxvtd
   sleep 20 && systemctl --user start mpd-notification &
   firefox &
+}
+
+# We can either go into a full WM/DE wnvironment or a kisosk mode.
+full_setup () {
+  set_env
+  setup_pulseaudio
+  setup_urxvt
+  setup_firefox_plugins
+  setup_keyboard
+  setup_colors
+  ask_yes "Do you want a full start?" && autostart &
+  sleep 60 && load_ssh_keys &
+}
+kiosk_setup () {
+  setup_pulseaudio
+  setup_keyboard
 }
 
 # first call some general initialisation code that should be run for every
 # environment
 source_global_xinit
-set_env
-setup_urxvt
-setup_firefox_plugins
-setup_keyboard
-setup_colors
-ask_yes "Do you want a full start?" && autostart &
-sleep 60 && load_ssh_keys &
 
 # select the correct programm to exec (and optionally call additional init
 # functions)
@@ -100,17 +114,32 @@ fi
 if [ $# -eq 1 ]; then
   # run some WM/DE specific init functions and set the command to exec
   case "$1" in
-    awesome|openbox|xmonad) cbatticon_power_manager &;;
-    gnome) set gnome-session;;
-    kde) set startkde;;
+    awesome|openbox|xmonad)
+      full_setup
+      #cbatticon_power_manager &
+      ;;
+    gnome)
+      full_setup
+      set gnome-session;;
+    kde)
+      full_setup
+      set startkde;;
     lxde)
+      full_setup
       if which startlxde; then set startlxde
       else set lxsession
       fi;;
     xfce)
+      full_setup
       if which startxfce4; then set startxfce4
       else set xfce4-session
       fi;;
+    music-kiosk)
+      kiosk_setup
+      set cantata;;
+    web-kiosk)
+      kiosk_setup
+      set firefox -P guest;;
   esac
 fi
 
