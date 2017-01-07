@@ -1,18 +1,19 @@
 
+!Urxvt*secondaryScroll: true
 URxvt.scrollstyle:       plain
 URxvt*scrollTtyOutput:   false
 URxvt*scrollTtyKeypress: true
 !URxvt.scrollBar_right:   false
 URxvt.scrollBar:         false
+
+URxvt.saveLines:         65535
+
 URxvt.font:              xft:FONT
 URxvt.letterSpace:       -1
 !URxvt.letterSpace:       -0.9
 !URxvt.italicFont:        xft:ITALIC_FONT
-URxvt.saveLines:         65535
-!URxvt.font:
 !URxvt.imFont:
 !URxvt.boldFont:
-!URxvt.italicFont:
 !URxvt.boldItalicFont:
 
 ! Different extensions
@@ -20,7 +21,7 @@ URxvt.perl-ext-common:   default,matcher
 
 ! settings for the matcher extension
 URxvt.url-launcher:      urxvt-url-handler.sh
-URxvt.matcher.button:    1
+URxvt.matcher.button:    3
 
 ! settings for the bell-command extension
 !URxvt.bell-command: notify-send "Beep, Beep"

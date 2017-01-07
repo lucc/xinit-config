@@ -2,6 +2,7 @@
 
 ! DejaVu font family
 #define FONT_DEJAVU         DejaVu Sans Mono:size=10
+#define FONT_DEJAVU_PL      DejaVu Sans Mono for Powerline:size=10
 
 ! Menlo font family
 #define FONT_MENLO          Menlo:size=11
