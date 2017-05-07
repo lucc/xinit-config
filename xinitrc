@@ -34,18 +34,6 @@ setup_urxvt () {
   export RXVT_SOCKET=$(systemctl --user show-environment | sed -n 's/^XDG_RUNTIME_DIR=//p')/urxvtd.socket
   #systemctl --user start urxvtd.socket
 }
-setup_firefox_plugins () {
-  cdir=${dir%/*}
-  _profile_export_vimperator_init () {
-    export VIMPERATOR_INIT="source $cdir/vimperator/vimperatorrc"
-    export VIMPERATOR_RUNTIME="$cdir/vimperator"
-  }
-  _profile_export_pentadactyl_init () {
-    export PENTADACTYL_INIT="source $cdir/pentadactyl/pentadactylrc"
-    export PENTADACTYL_RUNTIME="$cdir/pentadactyl"
-  }
-  _profile_export_vimperator_init
-}
 setup_pulseaudio () {
   pactl load-module module-x11-bell
 }
@@ -79,7 +67,7 @@ load_ssh_keys () {
 autostart () {
   #systemctl --user start urxvtd
   sleep 20 && systemctl --user start mpd-notification &
-  firefox &
+  browser &
 }
 
 # We can either go into a full WM/DE wnvironment or a kisosk mode.
@@ -87,7 +75,6 @@ full_setup () {
   set_env
   setup_pulseaudio
   setup_urxvt
-  setup_firefox_plugins
   setup_keyboard
   setup_colors
   ask_yes "Do you want a full start?" && autostart &
