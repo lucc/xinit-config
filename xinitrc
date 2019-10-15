@@ -31,7 +31,7 @@ set_env () {
 }
 setup_urxvt () {
   #export RXVT_SOCKET="$ddir/urxvt/urxvtd-`hostname`"
-  export RXVT_SOCKET=$(systemctl --user show-environment | sed -n 's/^XDG_RUNTIME_DIR=//p')/urxvtd.socket
+  export RXVT_SOCKET=$XDG_RUNTIME_DIR/urxvtd.socket
   #systemctl --user start urxvtd.socket
 }
 setup_pulseaudio () {
