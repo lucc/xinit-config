@@ -97,7 +97,7 @@ fi
 if [ $# -eq 1 ]; then
   # run some WM/DE specific init functions and set the command to exec
   case "$1" in
-    awesome|openbox|xmonad|i3)
+    awesome|openbox|xmonad|i3|qtile)
       auto-xrandr &
       full_setup
       #cbatticon_power_manager &
