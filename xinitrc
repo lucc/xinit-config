@@ -72,17 +72,17 @@ autostart () {
 
 # We can either go into a full WM/DE wnvironment or a kisosk mode.
 full_setup () {
-  set_env
+  #set_env
   setup_pulseaudio
-  setup_urxvt
-  setup_keyboard
-  setup_colors
+  #setup_urxvt
+  #setup_keyboard
+  #setup_colors
   ask_yes "Do you want a full start?" && autostart &
   sleep 60 && load_ssh_keys &
 }
 kiosk_setup () {
   setup_pulseaudio
-  setup_keyboard
+  #setup_keyboard
 }
 
 # first call some general initialisation code that should be run for every
