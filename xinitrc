@@ -92,11 +92,7 @@ source_global_xinit
 # select the correct programm to exec (and optionally call additional init
 # functions)
 if [ $# -eq 0 ]; then
-  # select the default WM/DE for different systems
-  case $(uname | tr A-Z a-z) in
-    linux) set awesome;;
-    darwin) set xterm;;
-  esac
+  set awesome
 fi
 if [ $# -eq 1 ]; then
   # run some WM/DE specific init functions and set the command to exec
